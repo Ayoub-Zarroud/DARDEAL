@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARDEAL - Contact</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            background-image: url('images/preview.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .line {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(0, 100, 255, 0.1), transparent);
+        }
+
+        .line:nth-child(1) { left: 10%; animation: lineMove 8s infinite ease-in-out; }
+        .line:nth-child(2) { left: 25%; animation: lineMove 10s infinite ease-in-out 1s; }
+        .line:nth-child(3) { left: 40%; animation: lineMove 7s infinite ease-in-out 2s; }
+        .line:nth-child(4) { left: 60%; animation: lineMove 9s infinite ease-in-out 1.5s; }
+        .line:nth-child(5) { left: 75%; animation: lineMove 11s infinite ease-in-out 0.5s; }
+        .line:nth-child(6) { left: 90%; animation: lineMove 8s infinite ease-in-out 2.5s; }
+
+        @keyframes lineMove {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .geometric-shape {
+            position: absolute;
+            left: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: clamp(250px, 30vw, 400px);
+            height: clamp(250px, 30vw, 400px);
+        }
+
+        .geometric-shape img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .shape-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .rectangle {
+            position: absolute;
+            width: 35%;
+            height: 50%;
+            left: 12.5%;
+            top: 25%;
+            background: linear-gradient(135deg, rgba(0, 60, 180, 0.3), rgba(0, 100, 255, 0.15));
+            border: 1px solid rgba(0, 100, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .circle {
+            position: absolute;
+            width: 62.5%;
+            height: 62.5%;
+            right: 0;
+            top: 18.75%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 60, 180, 0.2), rgba(0, 100, 255, 0.1));
+            border: 1px solid rgba(0, 100, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .triangle {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 31.25% solid transparent;
+            border-right: 31.25% solid transparent;
+            border-bottom: 55% solid rgba(0, 80, 200, 0.15);
+            left: 30%;
+            top: 15%;
+            filter: drop-shadow(0 0 20px rgba(0, 100, 255, 0.2));
+        }
+
+        nav {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: clamp(20px, 3vw, 30px) clamp(20px, 6vw, 80px);
+        }
+
+        .logo {
+            position: absolute;
+            left: clamp(20px, 6vw, 80px);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: clamp(30px, 4vw, 40px);
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            background: url("images/nav.svg") no-repeat center;
+            background-size: contain;
+            padding: 14px 36px;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: clamp(14px, 1.5vw, 16px);
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: #0066ff;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: clamp(40px, 5vw, 60px) clamp(20px, 6vw, 80px) clamp(80px, 10vw, 120px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(40px, 8vw, 100px);
+            align-items: center;
+            min-height: calc(100vh - 140px);
+        }
+
+        .form-section {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: clamp(30px, 5vw, 48px);
+            gap: clamp(16px, 2vw, 24px);
+            width: 100%;
+            max-width: 554px;
+            min-height: auto;
+            background: rgba(5, 86, 234, 0.01);
+            box-shadow: inset 0px 0px 44px rgba(5, 86, 234, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: clamp(20px, 3vw, 30px);
+            margin: 0 auto;
+        }
+
+        .form-section h1 {
+            font-size: clamp(24px, 3.5vw, 32px);
+            margin-bottom: clamp(20px, 3vw, 40px);
+            font-weight: 400;
+            width: 100%;
+        }
+
+        .form-section form {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: clamp(18px, 2.5vw, 25px);
+            width: 100%;
+        }
+
+        input, textarea {
+            width: 100%;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: clamp(14px, 2vw, 18px) clamp(20px, 3vw, 28px);
+            color: #fff;
+            font-size: clamp(14px, 1.5vw, 16px);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        textarea {
+            border-radius: clamp(18px, 2.5vw, 24px);
+            min-height: clamp(100px, 15vw, 120px);
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #0066ff;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .helper-text {
+            font-size: clamp(12px, 1.3vw, 13px);
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: clamp(8px, 1.2vw, 12px);
+            padding-left: clamp(20px, 3vw, 28px);
+            line-height: 1.5;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #0066ff;
+            border: none;
+            border-radius: 50px;
+            padding: clamp(14px, 2vw, 18px);
+            color: #fff;
+            font-size: clamp(16px, 1.8vw, 18px);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: clamp(10px, 1.5vw, 15px);
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            background: #0052cc;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .success-message, .error-message {
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 14px;
+            display: none;
+        }
+
+        .success-message {
+            background: rgba(0, 200, 100, 0.1);
+            border: 1px solid rgba(0, 200, 100, 0.3);
+            color: #00ff88;
+        }
+
+        .error-message {
+            background: rgba(255, 50, 50, 0.1);
+            border: 1px solid rgba(255, 50, 50, 0.3);
+            color: #ff6b6b;
+        }
+
+        .success-message.show, .error-message.show {
+            display: block;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            text-align: center;
+            padding: clamp(20px, 3vw, 30px);
+            font-size: clamp(12px, 1.4vw, 14px);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding-bottom: 100px;
+            }
+
+            .geometric-shape {
+                opacity: 0.5;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: clamp(200px, 40vw, 300px);
+                height: clamp(200px, 40vw, 300px);
+            }
+
+            .form-section {
+                max-width: 600px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .logo {
+                position: static;
+                margin-bottom: 10px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 30px 20px 120px;
+                min-height: auto;
+            }
+
+            .geometric-shape {
+                width: 180px;
+                height: 180px;
+                opacity: 0.3;
+            }
+
+            .form-section {
+                padding: 25px;
+            }
+
+            footer {
+                position: relative;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .form-section {
+                padding: 20px;
+                border-radius: 20px;
+            }
+
+            .form-section h1 {
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+
+            input, textarea {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            .submit-btn {
+                padding: 14px;
+                font-size: 16px;
+            }
+
+            .helper-text {
+                font-size: 11px;
+                padding-left: 20px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .container {
+                max-width: 1600px;
+            }
+        }
+
+        @media (max-width: 640px) and (orientation: landscape) {
+            .container {
+                padding: 20px;
+                min-height: auto;
+            }
+
+            footer {
+                position: relative;
+            }
+
+            .geometric-shape {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="lines">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        
+        <div class="geometric-shape">
+            <img src="images/svg.svg" alt="Geometric Shape">
+        </div>
+    </div>
+
+    <nav>
+        <div class="logo">
+            <img src="images/dardeal.svg" alt="DARDEAL">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#blog">Blog</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="left-section"></div>
+        
+        <div class="form-section">
+            <h1>Let's talk about your project</h1>
+            
+            <div class="success-message" id="successMessage">
+                Thank you! Your message has been sent successfully. We'll get back to you soon.
+            </div>
+            
+            <div class="error-message" id="errorMessage">
+                Oops! Something went wrong. Please try again.
+            </div>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your email address" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Your phone number (optional)">
+                </div>
+                
+                <div class="form-group">
+                    <textarea name="message" placeholder="What can we help you with?" required></textarea>
+                    <p class="helper-text">Tell us about your idea, your brand, or the challenge you're facing. We're listening.</p>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        Copyright © 2026 DARDEAL • All rights reserved
+    </footer>
+
+    <script>
+        // Using Web3Forms (Free, no limit)
+        const WEB3FORMS_ACCESS_KEY = 'b0b96d28-f35f-4ffe-ac70-577f68c8e1ac';
+
+        // Choose which service to use
+        const EMAIL_SERVICE = 'web3forms';
+
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const form = e.target;
+            
+            // Hide previous messages
+            successMessage.classList.remove('show');
+            errorMessage.classList.remove('show');
+            
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            try {
+                let response;
+                
+                if (EMAIL_SERVICE === 'web3forms') {
+                    // Web3Forms API
+                    const formData = new FormData(form);
+                    formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+                    
+                    response = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    });
+                } else if (EMAIL_SERVICE === 'formspree') {
+                    // Formspree API
+                    const formData = new FormData(form);
+                    
+                    response = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                }
+                
+                if (response.ok) {
+                    successMessage.classList.add('show');
+                    form.reset();
+                } else {
+                    errorMessage.classList.add('show');
+                }
+            } catch (error) {
+                errorMessage.classList.add('show');
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit';
+            }
+        });
+    </script>
+</body>
+</html>

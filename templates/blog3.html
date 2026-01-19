@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARDEAL - Audiovisual Production</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            gap: 10px;
+        }
+
+        .nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+
+  /* SVG background */
+  background: url("images/blogsvg.svg") no-repeat center;
+  background-size: contain;
+  padding: 14px 36px;
+  position: relative;
+}
+
+/* keep text above svg */
+.nav-links a {
+  position: relative;
+  z-index: 1;
+}
+
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .contact-btn {
+  background: #0066FF;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 5px;  /* Changed from 25px to 5px for rectangular shape */
+  text-decoration: none;
+  font-size: 16px;
+  transition: background 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+        .contact-btn:hover {
+            background: #0052CC;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background-image: url('images/blog3.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Social Stats */
+        .social-stats {
+            position: absolute;
+            left: 80px;
+            top: 560px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            z-index: 100;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stat-icon {
+            width: 24px;
+            height: 24px;
+            color: #333;
+        }
+
+        .stat-label {
+            text-transform: lowercase;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .stat-number {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Content Section */
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 80px;
+            position: relative;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .content p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .content ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .content li {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .content li strong {
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px 30px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                height: 400px;
+                padding: 0 30px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .content {
+                padding: 40px 30px;
+            }
+
+            .social-stats {
+                display: none;
+            }
+        }
+        /* Blog Section */
+.blog-section {
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 80px 20px;
+}
+
+.blog-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.blog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+}
+
+/* Section Title */
+.blog-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 56px;
+    font-weight: 400;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+}
+
+/* Blog Grid */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+}
+
+/* Blog Card */
+.blog-card {
+    background-color: #ffffff;
+    border: 1.5px solid #d1d5db;
+    border-radius: 24px;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+/* Blog Header */
+.blog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.blog-icon {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.blog-icon-blue {
+    background-color: #3b82f6;
+}
+
+.blog-icon-purple {
+    background-color: #7c3aed;
+}
+
+.blog-read-time {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #9ca3af;
+}
+
+/* Blog Card Title */
+.blog-card-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #000000;
+    line-height: 1.3;
+    margin: 0;
+    min-height: 110px;
+}
+
+/* Blog Footer */
+.blog-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: auto;
+}
+
+/* Blog Excerpt */
+.blog-excerpt {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #9ca3af;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+}
+
+/* CTA Button */
+.blog-cta-button {
+    width: 60px;
+    height: 54px;
+    padding: 10px 10px;
+    background-color: #0066FF;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.blog-cta-button:hover {
+    background-color: #2563eb;
+    transform: scale(1.05);
+}
+
+.blog-cta-button:active {
+    transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .blog-title {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-section {
+        padding: 60px 20px;
+    }
+    
+    .blog-content {
+        gap: 40px;
+    }
+    
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog-title {
+        font-size: 40px;
+    }
+    
+    .blog-card {
+        padding: 28px;
+    }
+    
+    .blog-card-title {
+        font-size: 24px;
+        min-height: auto;
+    }
+    
+    .blog-cta-button {
+        width: 80px;
+        height: 48px;
+    }
+}
+
+.footer {
+      background: #000000;
+      width: 100%;
+      padding: 60px 40px 30px;
+    }
+
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* Logo */
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 60px;
+    }
+
+    /* Navigation Section */
+    .footer-section {
+      margin-bottom: 50px;
+    }
+
+    .footer-section-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: #666666;
+      margin-bottom: 20px;
+      letter-spacing: 1.5px;
+      font-weight: 400;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 300;
+      transition: color 0.3s ease;
+    }
+
+    .footer-nav a:hover {
+      color: #3b82f6;
+    }
+
+    /* Contact Section */
+    .footer-contact {
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-item svg {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+
+    .footer-item span,
+    .footer-item a {
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 300;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-item a:hover {
+      color: #3b82f6;
+    }
+
+    /* Divider */
+    .footer-divider {
+      height: 1px;
+      background: #1a1a1a;
+      margin: 40px 0;
+    }
+
+    /* Bottom */
+    .footer-bottom {
+      text-align: center;
+    }
+
+    .footer-bottom p {
+      font-size: 14px;
+      color: #666666;
+      font-weight: 300;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .footer {
+        padding: 40px 20px 20px;
+      }
+
+      .footer-nav {
+        gap: 30px;
+      }
+
+      .footer-contact {
+        gap: 30px;
+      }
+
+      .footer-nav a,
+      .footer-item span,
+      .footer-item a {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .footer-nav {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .footer-contact {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+    }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <svg width="174" height="38" viewBox="0 0 174 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.2367 19H26.6V36.419C33.3104 33.4871 38 26.7912 38 19C38 13.4978 35.6612 8.54177 31.9234 5.07201L15.2367 19Z" fill="white"/>
+                <path d="M15.2 19H0V38H15.2V19Z" fill="white"/>
+                <path d="M19 0H0V19L22.3999 0.303328C21.2968 0.104049 20.1605 0 19 0Z" fill="white"/>
+                <path d="M55.4038 9.48438H47.5176V28.5193H55.4038C61.7395 28.5193 64.3504 23.9235 64.3504 19.0024C64.3504 14.0814 61.7395 9.48554 55.4038 9.48554V9.48438ZM54.9682 25.1209H51.0797V12.8839H54.9682C59.1018 12.8839 60.6245 15.4124 60.6245 19.0291C60.6245 22.6459 59.1018 25.1198 54.9682 25.1198V25.1209Z" fill="white"/>
+                <path d="M72.4842 9.48438L64.7617 28.5193H68.5956C69.656 25.8549 72.6468 25.5007 76.1555 25.5007H78.5759L79.8001 28.5193H83.634L75.9116 9.48438H72.4853H72.4842ZM76.1555 22.2382C74.0068 22.2382 72.1311 22.5913 70.5271 23.7609L74.1985 14.6784L77.2438 22.2382H76.1555Z" fill="white"/>
+                <path d="M96.709 20.3067C98.4488 19.5994 99.8356 18.0767 99.8356 15.6842C99.8356 11.7143 97.7961 9.48438 93.5812 9.48438H85.9668V28.5193H89.5289V26.4798C89.5289 23.0268 91.1608 21.503 93.3083 21.503C95.4558 21.503 97.1422 23.0257 97.1422 26.4798V28.5193H100.406V25.1743C100.406 22.8898 99.1817 21.0686 96.7078 20.3067H96.709ZM89.5301 21.014V12.8839H93.3094C94.479 12.8839 96.1376 13.0198 96.1376 15.6842C96.1376 19.0291 91.623 17.9687 89.5301 21.014Z" fill="white"/>
+                <path d="M110.63 9.48438H102.744V28.5193H110.63C116.966 28.5193 119.577 23.9235 119.577 19.0024C119.577 14.0814 116.966 9.48554 110.63 9.48554V9.48438ZM110.195 25.1209H106.306V12.8839H110.195C114.328 12.8839 115.851 15.4124 115.851 19.0291C115.851 22.6459 114.328 25.1198 110.195 25.1198V25.1209Z" fill="white"/>
+                <path d="M131.432 20.2792H134.26V17.0156H130.915C129.012 17.0423 126.891 17.9401 125.476 19.8437V12.882H135.728V9.48242H121.914V28.5173H136V25.1178H125.476C125.476 21.4743 128.712 20.278 131.431 20.278L131.432 20.2792Z" fill="white"/>
+                <path d="M146.06 9.48438L138.338 28.5193H142.172C143.232 25.8549 146.223 25.5007 149.732 25.5007H152.152L153.376 28.5193H157.21L149.488 9.48438H146.061H146.06ZM149.731 22.2382C147.582 22.2382 145.706 22.5913 144.102 23.7609L147.773 14.6784L150.819 22.2382H149.731Z" fill="white"/>
+                <path d="M163.105 25.1209V9.48438H159.543V28.5193H173.629V25.1209H163.105Z" fill="white"/>
+            </svg>
+        </div>
+        <ul class="nav-links">
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#blog">Blog</a></li>
+</ul>
+<a href="contact-us.html" class="contact-btn" style="text-decoration: none;">Contact us</a>
+    </nav>
+
+    <!-- Social Stats -->  
+<div class="social-stats">
+    <div class="stat-item">
+        <!-- REPLACE THE SVG HERE -->
+        <svg class="stat-icon" width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.6875 8.4375H0V2.53125H1.6875V8.4375ZM5.0625 8.4375H3.375V0H5.0625V4.21875V8.4375ZM8.4375 8.4375H6.75V5.0625H8.4375V8.4375Z" fill="#121416"/>
+        </svg>
+        <div class="stat-label">views</div>
+        <div class="stat-number">1k</div>
+    </div>
+        <div class="stat-item">
+            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            <div class="stat-label">shares</div>
+            <div class="stat-number">34</div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Audiovisual production: enhance your brand through video</h1>
+            <p>Video is a powerful communication lever. Discover how audiovisual production strengthens your brand image.</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content">
+        <p>Audiovisual Production: Capturing Attention in a Video-First World</h2>
+        <p>In the current digital landscape, audiovisual production has transitioned from an optional luxury to an absolute necessity.</p>
+
+        <p>With video content accounting for over 80% of all internet traffic, it has become the most powerful tool for capturing attention in a world of constant digital noise.</p>
+
+        <p>The Power of High-Impact Video Content:</p>
+        <p>The Power of High-Impact Video Content:
+Maximum Engagement: Videos are shared 12 times more often than text and images combined. They allow brands to break through the scroll and hold the viewer's attention.
+Emotional Storytelling: Unlike static content, video combines movement, sound, and narrative to tell a story that resonates emotionally, building a deeper connection with your audience.
+Information Retention: Users retain 95% of a message when they watch it in a video, compared to only 10% when reading it in text.</p>
+
+        <p>SEO and Visibility: Search engines and social media algorithms prioritize video content, significantly increasing your brand's organic reach and visibility.
+Elevate Your Brand with DARDEAL</p>
+        
+        <p>At DARDEAL, we don't just "film"—we create strategic visual assets. Whether it’s corporate storytelling, social media advertisements, or product showcases, we produce high-quality videos designed to reinforce your brand’s authority. Our team manages the entire process, from creative scripting and art direction to post-production and motion design, ensuring your message is not just seen, but remembered.</p>
+
+        
+    </section>
+
+    <!-- blog-section -->
+
+<section class="blog-section">
+        <div class="blog-container">
+            <div class="blog-content">
+                <!-- Section Title -->
+                <h2 class="blog-title">Discover more</h2>
+                
+                <!-- Blog Grid -->
+                <div class="blog-grid">
+                    <!-- Blog Post 1 -->
+                    <div class="blog-card">
+                        <div class="blog-header">
+                            <div class="blog-icon blog-icon-blue"></div>
+                            <span class="blog-read-time">3 min read</span>
+                        </div>
+                        <h3 class="blog-card-title">
+                            Branding in Morocco: How to build a strong and lasting brand ?
+                        </h3>
+                        <div class="blog-footer">
+                            <p class="blog-excerpt">
+                                Discover how to build a strong and consistent brand identity thanks to a branding strategy adapted to the Moroccan market...
+                            </p>
+                            <a href="blog1.html" class="blog-cta-button">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog Post 2 -->
+                    <div class="blog-card">
+                        <div class="blog-header">
+                            <div class="blog-icon blog-icon-purple"></div>
+                            <span class="blog-read-time">4 min read</span>
+                        </div>
+                        <h3 class="blog-card-title">
+                            UI/UX Design: improve the user experience and increase your conversions
+                        </h3>
+                        <div class="blog-footer">
+                            <p class="blog-excerpt">
+                                UI/UX design improves the user experience and increases conversions. Discover why it is essential for your digital projects...
+                            </p>
+                            <a href="blog2.html" class="blog-cta-button">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog Post 3 -->
+<div class="blog-card">
+    <div class="blog-header">
+        <div class="blog-icon blog-icon-purple"></div>
+        <span class="blog-read-time">2 min read</span>
+    </div>
+    <h3 class="blog-card-title">
+        Audiovisual production: enhance your brand through video
+    </h3>
+    <div class="blog-footer">
+        <p class="blog-excerpt">
+            Video is a powerful communication lever. Discover how audiovisual production strengthens your brand image.
+        </p>
+        <a href="blog3.html" class="blog-cta-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+  <div class="footer-container">
+
+    <!-- Logo -->
+    <div class="footer-logo">
+      <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="DarDeal Logo">
+        <path d="M15.2367 19H26.6V36.419C33.3104 33.4871 38 26.7912 38 19C38 13.4978 35.6612 8.54177 31.9234 5.07201L15.2367 19Z" fill="white"/>
+        <path d="M15.2 19H0V38H15.2V19Z" fill="white"/>
+        <path d="M19 0H0V19L22.3999 0.303328C21.2968 0.104049 20.1605 0 19 0Z" fill="white"/>
+      </svg>
+      <svg width="127" height="20" viewBox="0 0 127 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="DarDeal">
+        <path d="M7.8862 0.00195312H0V19.0369H7.8862C14.2219 19.0369 16.8328 14.441 16.8328 9.52C16.8328 4.59896 14.2219 0.0031157 7.8862 0.0031157V0.00195312ZM7.45066 15.6385H3.56215V3.4015H7.45066C11.5842 3.4015 13.1069 5.92997 13.1069 9.54671C13.1069 13.1635 11.5842 15.6373 7.45066 15.6373V15.6385Z" fill="white"/>
+        <path d="M24.9659 0.00195312L17.2434 19.0369H21.0773C22.1377 16.3725 25.1285 16.0183 28.6372 16.0183H31.0576L32.2818 19.0369H36.1157L28.3933 0.00195312H24.967H24.9659ZM28.6372 12.7558C26.4885 12.7558 24.6128 13.1089 23.0088 14.2784L26.6801 5.19594L29.7255 12.7558H28.6372Z" fill="white"/>
+        <path d="M49.1904 10.8243C50.9303 10.117 52.317 8.59432 52.317 6.20175C52.317 2.23193 50.2775 0.00195312 46.0627 0.00195312H38.4482V19.0369H42.0104V16.9974C42.0104 13.5444 43.6422 12.0206 45.7897 12.0206C47.9372 12.0206 49.6237 13.5432 49.6237 16.9974V19.0369H52.8873V15.6919C52.8873 13.4074 51.6632 11.5862 49.1893 10.8243H49.1904ZM42.0115 11.5316V3.4015H45.7909C46.9605 3.4015 48.619 3.53739 48.619 6.20175C48.619 9.54671 44.1045 8.48631 42.0115 11.5316Z" fill="white"/>
+        <path d="M63.1123 0.00195312H55.2261V19.0369H63.1123C69.448 19.0369 72.0589 14.441 72.0589 9.52C72.0589 4.59896 69.448 0.0031157 63.1123 0.0031157V0.00195312ZM62.6767 15.6385H58.7882V3.4015H62.6767C66.8103 3.4015 68.333 5.92997 68.333 9.54671C68.333 13.1635 66.8103 15.6373 62.6767 15.6373V15.6385Z" fill="white"/>
+        <path d="M83.9143 10.7968H86.7424V7.53313H83.3974C81.4938 7.55984 79.373 8.45764 77.9584 10.3612V3.39954H88.2105V0H74.3962V19.0349H88.4822V15.6354H77.9584C77.9584 11.9919 81.1942 10.7956 83.9131 10.7956L83.9143 10.7968Z" fill="white"/>
+        <path d="M98.5428 0.00195312L90.8203 19.0369H94.6542C95.7146 16.3725 98.7054 16.0183 102.214 16.0183H104.635L105.859 19.0369H109.693L101.97 0.00195312H98.5439H98.5428ZM102.213 12.7558C100.064 12.7558 98.1885 13.1089 96.5846 14.2784L100.256 5.19594L103.301 12.7558H102.213Z" fill="white"/>
+        <path d="M115.587 15.6385V0.00195312H112.025V19.0369H126.111V15.6385H115.587Z" fill="white"/>
+      </svg>
+    </div>
+
+    <!-- Navigation Section -->
+    <div class="footer-section">
+      <div class="footer-section-title">NAVIGATION</div>
+      <div class="footer-nav">
+    <a href="index.html#home">Home</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#work">Work</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#blog">Blog</a>
+</div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="footer-section">
+      <div class="footer-section-title">CONTACT US</div>
+      <div class="footer-contact">
+        <div class="footer-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_6_547)">
+              <path d="M12 0C5.37281 0 0 5.37281 0 12C0 18.6272 5.37281 24 12 24C18.6272 24 24 18.6272 24 12C24 5.37281 18.6272 0 12 0Z" fill="#F5F7FA"/>
+              <path d="M15.0607 12.765C14.5268 12.7669 14.0088 12.9462 13.5881 13.2747C13.5242 13.324 13.4496 13.3577 13.3704 13.3729C13.2911 13.388 13.2094 13.3844 13.1318 13.3621C11.6402 12.9363 10.9165 11.531 10.6748 10.9447C10.6382 10.8562 10.627 10.7592 10.6426 10.6647C10.6581 10.5702 10.6997 10.4819 10.7627 10.4098C11.1449 9.97377 11.3587 9.41558 11.3656 8.83584C11.2817 8.03346 10.987 7.3828 10.5122 6.95229C10.0877 6.57438 9.53757 6.3681 8.96919 6.37364C8.08091 6.37364 7.26875 6.82987 6.85058 7.56385C6.29508 8.53803 6.47304 9.89078 7.35104 11.3742L7.99552 12.4744C8.5932 13.4923 9.61265 14.5919 10.8651 15.5697C12.0553 16.4992 13.3216 17.2074 14.3416 17.515C14.6064 17.5848 14.8789 17.6213 15.1527 17.6235C16.6346 17.6235 17.4385 16.4056 17.4673 15.2025C17.491 14.1352 16.8758 12.8565 15.0607 12.765Z" fill="#0055F0"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_6_547">
+                <rect width="24" height="24" fill="white"/>
+              </clipPath>
+            </defs>
+          </svg>
+          <a href="tel:+212626976622">+212 626 976 622</a>
+        </div>
+
+        <div class="footer-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_649_422)">
+      <path d="M12 0C5.37247 0 0 5.37247 0 12C0 18.6275 5.37247 24 12 24C18.6275 24 24 18.6275 24 12C23.9923 5.3758 18.6241 0.00787498 12 0Z" fill="#F5F7FA"/>
+      <path d="M7.2 7.54688H16.8C17.46 7.54688 18 8.08688 18 8.74688V15.9469C18 16.6069 17.46 17.1469 16.8 17.1469H7.2C6.54 17.1469 6 16.6069 6 15.9469V8.74688C6 8.08688 6.54 7.54688 7.2 7.54688Z" fill="#0055F0"/>
+      <path d="M18 8.74707L12 12.9471L6 8.74707" stroke="#F5F7FA" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <defs>
+      <clipPath id="clip0_649_422">
+        <rect width="24" height="24" fill="white"/>
+      </clipPath>
+    </defs>
+  </svg>
+          <a href="mailto:dealdar01@gmail.com">dealdar01@gmail.com</a>
+        </div>
+
+        <div class="footer-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_649_431)">
+      <path d="M12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0Z" fill="#F5F7FA"/>
+      <path d="M8.72764 9.81856C9.33014 9.81856 9.81856 9.33014 9.81856 8.72764C9.81856 8.12514 9.33014 7.63672 8.72764 7.63672C8.12514 7.63672 7.63672 8.12514 7.63672 8.72764C7.63672 9.33014 8.12514 9.81856 8.72764 9.81856Z" fill="#0055F0"/>
+      <path d="M7.63672 10.3633H9.81852V16.3633H7.63672V10.3633Z" fill="#0055F0"/>
+      <path d="M14.9227 10.3633C13.2864 10.3633 13.09 11.3342 13.09 11.3342V10.3633H10.9082V16.3633H13.09V13.0906C13.09 13.0906 13.09 11.9996 14.0173 11.9996C14.5627 11.9996 14.7264 12.4851 14.7264 13.0906V16.3633H16.9082V13.0906C16.9082 11.3833 16.1664 10.3633 14.9227 10.3633Z" fill="#0055F0"/>
+    </g>
+    <defs>
+      <clipPath id="clip0_649_431">
+        <rect width="24" height="24" fill="white"/>
+      </clipPath>
+    </defs>
+  </svg>
+          <a href="https://linkedin.com/company/dardeal" target="_blank">company/dardeal</a>
+        </div>
+
+        <div class="footer-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_6_578)">
+      <path d="M12 0C5.37281 0 0 5.37281 0 12C0 18.6272 5.37281 24 12 24C18.6272 24 24 18.6272 24 12C24 5.37281 18.6272 0 12 0Z" fill="#F5F7FA"/>
+      <g clip-path="url(#clip1_6_578)">
+        <g clip-path="url(#clip2_6_578)">
+          <path d="M18.9861 9.11409C18.9533 8.37021 18.833 7.8588 18.6607 7.41566C18.4829 6.94528 18.2095 6.52415 17.8511 6.17406C17.501 5.81852 17.0771 5.54225 16.6122 5.36726C16.1665 5.19494 15.6578 5.07465 14.9139 5.04185C14.1645 5.00627 13.9265 4.99805 12.0258 4.99805C10.125 4.99805 9.8871 5.00627 9.14045 5.03907C8.39658 5.07187 7.88517 5.19227 7.44214 5.36448C6.97165 5.54225 6.55051 5.81574 6.20043 6.17406C5.84489 6.52415 5.56873 6.94806 5.39363 7.41299C5.22131 7.8588 5.10101 8.36743 5.06822 9.11131C5.03264 9.86074 5.02441 10.0987 5.02441 11.9994C5.02441 13.9002 5.03264 14.1381 5.06544 14.8847C5.09824 15.6286 5.21864 16.14 5.39096 16.5832C5.56873 17.0535 5.84489 17.4747 6.20043 17.8248C6.55051 18.1803 6.97443 18.4566 7.43936 18.6316C7.88517 18.8039 8.3938 18.9242 9.13778 18.957C9.88433 18.9899 10.1223 18.998 12.0231 18.998C13.9239 18.998 14.1618 18.9899 14.9084 18.957C15.6523 18.9242 16.1637 18.8039 16.6068 18.6316C17.5476 18.2678 18.2915 17.5239 18.6553 16.5832C18.8275 16.1374 18.9479 15.6286 18.9807 14.8847C19.0135 14.1381 19.0217 13.9002 19.0217 11.9994C19.0217 10.0987 19.0189 9.86074 18.9861 9.11409ZM17.7254 14.83C17.6953 15.5138 17.5804 15.883 17.4847 16.1291C17.2495 16.739 16.7654 17.2231 16.1555 17.4583C15.9094 17.5541 15.5375 17.6689 14.8564 17.6989C14.118 17.7318 13.8965 17.7399 12.0286 17.7399C10.1606 17.7399 9.93635 17.7318 9.2006 17.6989C8.51687 17.6689 8.14766 17.5541 7.90152 17.4583C7.59801 17.3462 7.32174 17.1684 7.0975 16.9359C6.86503 16.7089 6.68726 16.4354 6.57509 16.1319C6.47936 15.8858 6.36452 15.5138 6.3345 14.8328C6.3016 14.0944 6.29348 13.8728 6.29348 12.0049C6.29348 10.1369 6.3016 9.91266 6.3345 9.17701C6.36452 8.49328 6.47936 8.12407 6.57509 7.87793C6.68726 7.57431 6.86503 7.29815 7.10027 7.0738C7.32719 6.84133 7.60068 6.66356 7.90429 6.5515C8.15044 6.45577 8.52243 6.34093 9.20338 6.3108C9.9418 6.27801 10.1634 6.26978 12.0312 6.26978C13.902 6.26978 14.1234 6.27801 14.8592 6.3108C15.5429 6.34093 15.9121 6.45577 16.1583 6.5515C16.4618 6.66356 16.7381 6.84133 16.9623 7.0738C17.1948 7.30082 17.3725 7.57431 17.4847 7.87793C17.5804 8.12407 17.6953 8.49595 17.7254 9.17701C17.7582 9.91544 17.7664 10.1369 17.7664 12.0049C17.7664 13.8728 17.7582 14.0916 17.7254 14.83Z" fill="#0055F0"/>
+          <path d="M12.0266 8.40308C10.0411 8.40308 8.43018 10.0139 8.43018 11.9995C8.43018 13.9851 10.0411 15.5959 12.0266 15.5959C14.0122 15.5959 15.623 13.9851 15.623 11.9995C15.623 10.0139 14.0122 8.40308 12.0266 8.40308ZM12.0266 14.3324C10.7385 14.3324 9.69368 13.2877 9.69368 11.9995C9.69368 10.7113 10.7385 9.66658 12.0266 9.66658C13.3148 9.66658 14.3595 10.7113 14.3595 11.9995C14.3595 13.2877 13.3148 14.3324 12.0266 14.3324Z" fill="#0055F0"/>
+          <path d="M16.6051 8.26049C16.6051 8.72415 16.2291 9.10009 15.7654 9.10009C15.3017 9.10009 14.9258 8.72415 14.9258 8.26049C14.9258 7.79673 15.3017 7.4209 15.7654 7.4209C16.2291 7.4209 16.6051 7.79673 16.6051 8.26049Z" fill="#0055F0"/>
+        </g>
+      </g>
+    </g>
+    <defs>
+      <clipPath id="clip0_6_578">
+        <rect width="24" height="24" fill="white"/>
+      </clipPath>
+      <clipPath id="clip1_6_578">
+        <rect width="14" height="14" fill="white" transform="translate(5 4.99805)"/>
+      </clipPath>
+      <clipPath id="clip2_6_578">
+        <rect width="14" height="14" fill="white" transform="translate(5 4.99805)"/>
+      </clipPath>
+    </defs>
+  </svg>
+          <a href="https://instagram.com/dardeal.agency" target="_blank">dardeal.agency</a>
+        </div>
+
+        <div class="footer-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_6_591)">
+      <path d="M12 0C5.37247 0 0 5.37247 0 12C0 18.6275 5.37247 24 12 24C18.6275 24 24 18.6275 24 12C23.9923 5.3758 18.6241 0.00787498 12 0Z" fill="#F5F7FA"/>
+      <g clip-path="url(#clip1_6_591)">
+        <path d="M15.0625 18.9092H8.9375C7.0125 18.9092 5.4375 17.3342 5.4375 15.4092V9.28418C5.4375 7.35918 7.0125 5.78418 8.9375 5.78418H15.0625C16.9875 5.78418 18.5625 7.35918 18.5625 9.28418V15.4092C18.5625 17.3342 16.9875 18.9092 15.0625 18.9092Z" fill="#0055F0"/>
+        <path d="M16.375 12.3467H14.1875V11.1217C14.1875 10.8154 14.4063 10.5967 14.7125 10.5967H15.9375V8.40918H14.1875C12.9625 8.40918 12 9.37168 12 10.5967V12.3467H10.25V14.5342H12V18.9092H14.1875V14.5342H15.5L16.375 12.3467Z" fill="#F5F7FA"/>
+      </g>
+    </g>
+    <defs>
+      <clipPath id="clip0_6_591">
+        <rect width="24" height="24" fill="white"/>
+      </clipPath>
+      <clipPath id="clip1_6_591">
+        <rect width="14" height="14" fill="white" transform="translate(5 5.34668)"/>
+      </clipPath>
+    </defs>
+  </svg>
+          <a href="https://web.facebook.com/profile.php?id=61582475589248" target="_blank">Dardeal</a>
+        </div>
+
+        <div class="footer-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0Z" fill="#F5F7FA"/>
+    <path d="M18.4071 8.51074C17.6081 8.51074 16.8709 8.24605 16.2789 7.79953C15.6 7.28766 15.1122 6.5368 14.9399 5.67137C14.8973 5.45754 14.8743 5.23688 14.8721 5.01074H12.5897V11.2473L12.587 14.6634C12.587 15.5766 11.9923 16.351 11.1678 16.6234C10.9286 16.7024 10.6702 16.7398 10.4011 16.7251C10.0577 16.7062 9.73585 16.6026 9.45613 16.4352C8.86085 16.0792 8.45726 15.4334 8.44632 14.6945C8.4291 13.5398 9.36261 12.5984 10.5165 12.5984C10.7443 12.5984 10.963 12.6355 11.1678 12.7031V10.9985V10.3857C10.9518 10.3537 10.732 10.337 10.5097 10.337C9.24667 10.337 8.06542 10.862 7.22105 11.8079C6.58285 12.5226 6.20003 13.4345 6.14097 14.3907C6.06359 15.6469 6.52324 16.841 7.41464 17.722C7.54562 17.8514 7.68316 17.9714 7.82699 18.0821C8.59124 18.6703 9.52558 18.9891 10.5097 18.9891C10.732 18.9891 10.9518 18.9727 11.1678 18.9407C12.0871 18.8046 12.9353 18.3837 13.6047 17.722C14.4272 16.9091 14.8817 15.8298 14.8866 14.6811L14.8748 9.57988C15.2672 9.88258 15.6962 10.133 16.1567 10.3275C16.8728 10.6296 17.6322 10.7827 18.4137 10.7825V9.12516V8.5102C18.4142 8.51074 18.4077 8.51074 18.4071 8.51074Z" fill="#0055F0"/>
+  </svg>
+          <a href="https://tiktok.com/@dardeal" target="_blank">Dardeal</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="footer-divider"></div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <p>Copyright © 2026 DARDEAL • All rights reserved</p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
