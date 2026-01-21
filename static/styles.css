@@ -267,9 +267,17 @@ body.nav-fixed {
 /* Responsive Design */
 @media (max-width: 768px) {
   .navbar {
-    height: var(--nav-height);
-    padding: 0 20px;
-  }
+        position: relative;
+        z-index: 1000;
+    }
+
+    /* Make sure nav links receive touch events */
+    nav a,
+    .navbar a {
+        pointer-events: auto;
+        position: relative;
+        z-index: 1001;
+    }
 
   .nav-links {
     flex-direction: row;
