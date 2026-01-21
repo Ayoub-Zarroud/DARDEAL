@@ -683,12 +683,6 @@ body.nav-fixed {
             gap: 20px;
         }
 
-        .brand-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
         .brand-header-img {
             width: auto;
             height: 50px;
