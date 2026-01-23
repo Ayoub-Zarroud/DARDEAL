@@ -51,7 +51,7 @@ body.nav-fixed {
 }
 .explore-btn {
           position: absolute;
-          bottom: 300px;
+          bottom: 250px;
           left: 50%;
           transform: translateX(-50%);
           background: transparent;
