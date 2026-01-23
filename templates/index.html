@@ -13,39 +13,44 @@
 <body>
     <!-- Hero Section with Background Image -->
     <main class="hero">
+      <button class="explore-btn" id="exploreBtn">
+            Explore
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
     </main>
     <!-- Brand Section -->
     <section class="brand-section" id="home">
       <script>
-            // Auto-scroll from hero to brand section after 2 seconds, then hide hero
-            window.addEventListener('load', function() {
-                const hero = document.querySelector('.hero');
-                const brandSection = document.querySelector('.brand-section');
-                
-                // Wait 2 seconds after page load
-                setTimeout(function() {
-                    // Smooth scroll to brand section
-                    brandSection.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    
-                    // Wait for scroll animation to complete and stay there for a moment
-                    setTimeout(function() {
-                        // Fade out the hero section
-                        hero.style.transition = 'opacity 0.5s ease';
-                        hero.style.opacity = '0';
-                        
-                        // After fade out, remove it from layout and reset scroll
-                        setTimeout(function() {
-                            hero.style.display = 'none';
-                            window.scrollTo(0, 0);
-                        }, 500);
-                    }, 1500); // Stay at brand section for 1.5 seconds before hiding
-                    
-                }, 2000);
+    // Scroll from hero to brand section on button click, then hide hero
+    document.addEventListener('DOMContentLoaded', function() {
+        const hero = document.querySelector('.hero');
+        const brandSection = document.querySelector('.brand-section');
+        const exploreBtn = document.getElementById('exploreBtn');
+        
+        exploreBtn.addEventListener('click', function() {
+            // Smooth scroll to brand section
+            brandSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
             });
-        </script>
+            
+            // Wait 2 seconds after scroll starts, then fade out hero
+            setTimeout(function() {
+                // Fade out the hero section
+                hero.style.transition = 'opacity 0.5s ease';
+                hero.style.opacity = '0';
+                
+                // After fade out, remove it from layout and reset scroll
+                setTimeout(function() {
+                    hero.style.display = 'none';
+                    window.scrollTo(0, 0);
+                }, 500);
+            }, 2000); // Wait 2 seconds before starting the fade
+        });
+    });
+     </script>
         <nav class="navbar">
             <div class="logo-nav">
                 <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
