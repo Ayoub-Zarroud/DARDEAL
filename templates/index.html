@@ -69,14 +69,31 @@
                 </svg>
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#blog">Blog</a></li>
-            </ul>
-            <a href="contact-us.html" class="contact-btn" style="text-decoration: none;">Contact us</a>
-        </nav>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#blog">Blog</a></li>
+    </ul>
+    <a href="contact-us.html" class="contact-btn">Contact us</a>
+    <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#blog">Blog</a></li>
+    </ul>
+    <a href="contact-us.html" class="contact-btn">Contact us</a>
+</div>
 
         <div class="brand-content">
             <svg class="brand-heading-svg" width="524" height="106" viewBox="0 0 524 106" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -761,9 +778,36 @@
     </section>
 
     <script>
-        // Web3Forms Access Key
         const WEB3FORMS_ACCESS_KEY = 'b0b96d28-f35f-4ffe-ac70-577f68c8e1ac';
 
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        });
+
+        menuOverlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        });
+
+        // Close menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+            });
+        });
+
+        // Contact form submission
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -772,11 +816,9 @@
             const errorMessage = document.getElementById('errorMessage');
             const form = e.target;
             
-            // Hide previous messages
             successMessage.classList.remove('show');
             errorMessage.classList.remove('show');
             
-            // Disable button and show loading state
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
             
@@ -789,33 +831,15 @@
                     body: formData
                 });
                 
-                const data = await response.json();
-                
-                if (response.ok && data.success) {
+                if (response.ok) {
                     successMessage.classList.add('show');
                     form.reset();
-                    
-                    // Hide success message after 2 seconds
-                    setTimeout(() => {
-                        successMessage.classList.remove('show');
-                    }, 2000);
                 } else {
                     errorMessage.classList.add('show');
-                    
-                    // Hide error message after 2 seconds
-                    setTimeout(() => {
-                        errorMessage.classList.remove('show');
-                    }, 2000);
                 }
             } catch (error) {
                 errorMessage.classList.add('show');
-                
-                // Hide error message after 2 seconds
-                setTimeout(() => {
-                    errorMessage.classList.remove('show');
-                }, 2000);
             } finally {
-                // Re-enable button
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Submit';
             }
