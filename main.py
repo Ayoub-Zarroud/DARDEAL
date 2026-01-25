@@ -12,7 +12,7 @@ def index():
 
 @app.route('/hero.html')
 def hero():
-    return render_template('index.html')
+    return render_template('hero.html')
 
 @app.route('/contact-us.html')
 def contact():
