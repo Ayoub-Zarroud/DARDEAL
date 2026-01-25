@@ -324,75 +324,84 @@
 
     <!-- OUR WORK -->
 
-    <section class="our-work-section" id="work">
+    <section class="our-work-section">
         <h2 class="section-title">Our Work</h2>
         
         <div class="work-container">
-            <!-- First Row -->
+            <!-- First Row: AVER + BIGGY -->
             <div class="work-row">
-                <div class="work-card card-small">
-                    <div class="project-brand">
-                        <div class="brand-header">
-                            <img src="images/logoo.svg" alt="AVER Branding" class="brand-header-img">
-                        </div>
-                        
-                        <div class="brand-preview">
-                            <img src="images/AVER.svg" alt="AVER Logo" class="preview-aver-img">
+                <!-- AVER Card -->
+                <div class="work-card card-aver">
+                    <div class="brand-header">
+                        <img src="images/logoo.svg" alt="AVER Branding" style="height: 50px; width: auto;">
+                    </div>
+                    
+                    <div class="aver-content">
+                        <div class="aver-preview">
+                            <img src="images/AVER.svg" alt="AVER Logo" style="width: 100%; height: 100%; object-fit: contain;">
                         </div>
                         
                         <div class="color-palette">
-                            <img src="images/color.svg" alt="Color Palette" class="color-palette-img">
+                            <img src="images/color.svg" alt="Color Palette" style="width: 100%; height: auto; object-fit: contain;">
                         </div>
                     </div>
                 </div>
-                <div class="work-card card-large">
+
+                <!-- BIGGY Card -->
+                <div class="work-card card-biggy">
                     <div class="biggy-wrapper">
-                        <div class="brand-header">
-                            <img src="images/burger.svg" alt="BIGGY Branding" class="brand-header-img">
+                        <div class="brand-header biggy-header">
+                            <img src="images/burger.svg" alt="BIGGY Branding" style="height: 50px; width: auto;">
                         </div>
                         
                         <div class="biggy-content">
-                            <div class="biggy-media">
-                                <img src="images/biggy.svg" alt="BIGGY showcase" class="biggy-thumbnail">
-                                <video class="biggy-video" controls style="display: none;">
-                                    <source src="images/promo.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <button class="play-button" aria-label="Play video"></button>
-                                <button class="fullscreen-button" style="display: none;" aria-label="Fullscreen">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8 3H5C3.89543 3 3 3.89543 3 5V8M21 8V5C21 3.89543 20.1046 3 19 3H16M16 21H19C20.1046 21 21 20.1046 21 19V16M8 21H5C3.89543 21 3 20.1046 3 19V16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </button>
+                            <div class="biggy-media-container">
+                                <div class="biggy-main">
+                                    <img src="images/biggy.svg" alt="BIGGY showcase" class="biggy-thumbnail">
+                                    <video class="biggy-video" style="display: none;">
+                                        <source src="images/promo.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <button class="play-button" aria-label="Play video"></button>
+                                    <button class="fullscreen-button" aria-label="Fullscreen">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 3H5C3.89543 3 3 3.89543 3 5V8M21 8V5C21 3.89543 20.1046 3 19 3H16M16 21H19C20.1046 21 21 20.1046 21 19V16M8 21H5C3.89543 21 3 20.1046 3 19V16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Second Row -->
+            <!-- Second Row: KOOR + Social Media + Mini Cards -->
             <div class="work-row">
-                <div class="work-card card-medium">
-                    <div class="project-brand">
-                        <div class="brand-header-img">
-                            <img src="images/KOOR.svg" alt="KOOR Branding" class="brand-header-img">
-                        </div>
-                        <div class="brand-preview">
-                            <img src="images/koorasea.svg" alt="KOORASEA" class="preview-aver-img">
-                        </div>
+                <!-- KOOR Card -->
+                <div class="work-card card-koor">
+                    <div class="brand-header">
+                        <img src="images/KOOR.svg" alt="KOOR Branding" style="height: 50px; width: auto;">
+                    </div>
+                    
+                    <div class="koor-preview">
+                        <img src="images/koorasea.svg" alt="Koor Sea Mockup">
                     </div>
                 </div>
-                <div class="work-card card-medium-small">
-                    <div class="brand-preview">
-                        <img src="images/social media.svg" alt="Social Media" class="preview-aver-img">
+
+                <!-- Social Media Card -->
+                <div class="work-card card-social">
+                    <div class="social-preview">
+                        <img src="images/social media.svg" alt="Social Media Post">
                     </div>
                 </div>
+
+                <!-- Mini Cards Column -->
                 <div class="card-column">
                     <div class="card-mini">
-                        <img src="images/black.svg" alt="Black Friday" style="width: 100%; height: 100%; object-fit: cover; border-radius: 30px;">
+                        <img src="images/black.svg" alt="Black Friday">
                     </div>
                     <div class="card-mini">
-                        <img src="images/muchmore.svg" alt="Much More" style="width: 100%; height: 100%; object-fit: cover; border-radius: 30px;">
+                        <img src="images/muchmore.svg" alt="Much More">
                     </div>
                 </div>
             </div>
@@ -400,27 +409,31 @@
     </section>
 
     <script>
-        // Video play functionality with fullscreen and animations
         document.addEventListener('DOMContentLoaded', function() {
             const playButton = document.querySelector('.play-button');
             const fullscreenButton = document.querySelector('.fullscreen-button');
             const video = document.querySelector('.biggy-video');
             const thumbnail = document.querySelector('.biggy-thumbnail');
+            const biggyHeader = document.querySelector('.biggy-header');
             
-            if (playButton && video && thumbnail && fullscreenButton) {
+            if (playButton && video && thumbnail && fullscreenButton && biggyHeader) {
                 // Play button click
                 playButton.addEventListener('click', function() {
-                    // Fade out thumbnail and hide play button
+                    // Fade out thumbnail, play button, and header
                     thumbnail.classList.add('fade-out');
                     playButton.style.display = 'none';
+                    biggyHeader.classList.add('fade-out');
                     
                     setTimeout(function() {
                         thumbnail.style.display = 'none';
                         thumbnail.classList.remove('fade-out');
+                        biggyHeader.style.display = 'none';
+                        biggyHeader.classList.remove('fade-out');
                         
-                        // Show video and fullscreen button with fade in
+                        // Show video with fade in
                         video.style.display = 'block';
                         video.classList.add('fade-in');
+                        video.setAttribute('controls', 'controls');
                         fullscreenButton.style.display = 'flex';
                         video.play();
                     }, 500);
@@ -439,7 +452,6 @@
                 
                 // When video ends
                 video.addEventListener('ended', function() {
-                    // Fade out video and fullscreen button
                     video.classList.remove('fade-in');
                     video.classList.add('fade-out');
                     fullscreenButton.style.display = 'none';
@@ -447,15 +459,20 @@
                     setTimeout(function() {
                         video.style.display = 'none';
                         video.classList.remove('fade-out');
+                        video.removeAttribute('controls');
                         video.currentTime = 0;
                         
-                        // Show thumbnail and play button with fade in
+                        // Show thumbnail, header, and play button with fade in
+                        biggyHeader.style.display = 'flex';
+                        biggyHeader.classList.add('fade-in');
+                        
                         thumbnail.style.display = 'block';
                         thumbnail.classList.add('fade-in');
                         playButton.style.display = 'flex';
                         
                         setTimeout(function() {
                             thumbnail.classList.remove('fade-in');
+                            biggyHeader.classList.remove('fade-in');
                         }, 500);
                     }, 500);
                 });

@@ -671,11 +671,10 @@ body.nav-fixed {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px;
-            gap: 40px;
-            width: 100vw;
+            padding: 20px 20px;
+            gap: 58px;
+            width: 100%;
             min-height: 100vh;
-            margin: 0;
             background: radial-gradient(109.8% 100.05% at 50% 0%, #000104 41.94%, #0055F0 100%);
         }
 
@@ -687,15 +686,15 @@ body.nav-fixed {
             text-align: center;
             color: #FFFFFF;
             width: 100%;
+            max-width: 1280px;
         }
 
         .work-container {
             display: flex;
             flex-direction: column;
             gap: 24px;
-            width: 100vw;
-            flex: 1;
-            padding: 0 20px;
+            width: 100%;
+            max-width: 1280px;
         }
 
         .work-row {
@@ -703,26 +702,24 @@ body.nav-fixed {
             flex-direction: row;
             justify-content: center;
             align-items: stretch;
-            gap: 24px;
+            gap: 31px;
             width: 100%;
-            flex: 1;
             overflow-x: auto;
-            overflow-y: hidden;
             scrollbar-width: none;
             -ms-overflow-style: none;
-            padding: 0;
         }
 
         .work-row::-webkit-scrollbar {
             display: none;
         }
 
+        /* Card Base Styles */
         .work-card {
+            box-sizing: border-box;
             display: flex;
             flex-direction: column;
             padding: 48px;
             gap: 24px;
-            min-width: 350px;
             background: rgba(5, 86, 234, 0.1);
             box-shadow: inset 0px 0px 44px rgba(255, 255, 255, 0.1);
             border-radius: 30px;
@@ -736,48 +733,56 @@ body.nav-fixed {
                         0px 10px 30px rgba(0, 85, 240, 0.3);
         }
 
-        .card-small {
-            flex: 0 0 28%;
+        /* First Row - AVER Card (Small) */
+        .card-aver {
+            width: 385px;
+            height: 488px;
             align-items: flex-end;
         }
 
-        .card-large {
-            flex: 1 1 72%;
+        /* First Row - BIGGY Card (Large) */
+        .card-biggy {
+            width: 864px;
+            height: 488px;
             align-items: flex-start;
         }
 
-        .card-medium {
-            flex: 1 1 40%;
+        /* Second Row - KOOR Card (Medium) */
+        .card-koor {
+            width: 577px;
+            height: 488px;
             align-items: flex-start;
         }
 
-        .card-medium-small {
-            flex: 0 0 30%;
+        /* Second Row - Social Media Card */
+        .card-social {
+            width: 367px;
+            height: 488px;
             align-items: flex-start;
         }
 
+        /* Second Row - Column Container */
         .card-column {
             display: flex;
             flex-direction: column;
             gap: 24px;
-            flex: 0 0 25%;
-            height: 100%;
-            min-width: 240px;
+            width: 274px;
+            height: 488px;
         }
 
         .card-mini {
+            box-sizing: border-box;
             display: flex;
-            flex-direction: row;
             justify-content: center;
             align-items: center;
-            padding: 48px;
-            gap: 24px;
-            width: 100%;
+            padding: 0;
             background: rgba(5, 86, 234, 0.1);
             box-shadow: inset 0px 0px 44px rgba(255, 255, 255, 0.1);
             border-radius: 30px;
             flex: 1;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
         }
 
         .card-mini:hover {
@@ -786,127 +791,186 @@ body.nav-fixed {
                         0px 10px 30px rgba(0, 85, 240, 0.3);
         }
 
-        .card-content {
+        .card-mini img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 14px;
+            object-position: center;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
 
-        /* Project Brand Styles */
-        .project-brand {
+        /* Brand Header Styles */
+        .brand-header {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 18px;
             width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 20px;
         }
 
-        .brand-header-img {
-            width: auto;
-            height: 50px;
-            max-width: 100%;
-        }
-
-        .brand-logo svg {
-            width: 40px;
-            height: 40px;
+        .brand-logo {
+            width: 64px;
+            height: 64px;
+            flex-shrink: 0;
         }
 
         .brand-info {
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            flex: 1;
         }
 
         .brand-name {
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
-            font-size: 20px;
+            font-size: 28px;
+            line-height: 140%;
+            letter-spacing: -0.02em;
             color: #FFFFFF;
-            margin: 0;
         }
 
         .brand-tagline {
             font-family: 'Poppins', sans-serif;
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.6);
-            margin: 0;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 140%;
+            letter-spacing: -0.02em;
+            color: #B1B9CF;
         }
 
-        .brand-preview {
-            flex: 1;
+        /* AVER Card Specific */
+        .aver-content {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
             width: 100%;
-        }
-
-        .preview-aver-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center; /* or top center */
-    border-radius: 24px;
-    display: block;
-}
-
-        .color-palette {
-            display: flex;
-            width: 100%;
+            gap: 24px;
             flex: 1;
-            align-items: center;
-            justify-content: center;
         }
 
-        .color-palette-img {
+        .aver-preview img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
 
-        /* Biggy Video Styles */
+        .aver-logo {
+            font-family: 'Nunito Sans', sans-serif;
+            font-weight: 800;
+            font-size: 38px;
+            line-height: 140%;
+            letter-spacing: 0.04em;
+            color: #F2F7F7;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .color-item {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            background: #FFFFFF;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0px 1px 2px rgba(9, 25, 72, 0.13), 0px 0px 0px 1px rgba(18, 55, 105, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .color-swatch {
+            width: 100%;
+            height: 75px;
+        }
+
+        .color-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+            gap: 2px;
+        }
+
+        .color-name {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            color: #36394A;
+        }
+
+        .color-code {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #666D80;
+            opacity: 0.5;
+        }
+
+        /* BIGGY Card Specific */
         .biggy-wrapper {
             width: 100%;
             height: 100%;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 24px;
         }
 
         .biggy-content {
             width: 100%;
             flex: 1;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 8px;
         }
 
-        .biggy-media {
+        .biggy-media-container {
             position: relative;
             width: 100%;
             height: 100%;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .biggy-main {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            overflow: hidden;
         }
 
         .biggy-thumbnail,
         .biggy-video {
-            border-radius: 20px;
             width: 100%;
             height: 100%;
             object-fit: contain;
             display: block;
+            border-radius: 20px;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            pointer-events: auto;
+        }
+
+        .biggy-video[controls] {
+            pointer-events: auto;
         }
 
         .play-button {
-            box-sizing: border-box;
             position: absolute;
             top: 50%;
             left: 35%;
@@ -915,7 +979,7 @@ body.nav-fixed {
             height: 120px;
             background: #0055F0;
             border: 4px solid #FAFAFA;
-            border-radius: 485.364px;
+            border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -949,7 +1013,7 @@ body.nav-fixed {
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
@@ -961,6 +1025,81 @@ body.nav-fixed {
             transform: scale(1.1);
         }
 
+        /* KOOR Card Specific */
+        .koor-preview {
+            width: 100%;
+            flex: 1;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .koor-preview img {
+            width: 100%;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        /* Social Media Card */
+        .social-preview {
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .social-preview img {
+            width: 100%;
+            object-fit: cover;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        /* Mini Cards */
+        .mini-black {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .mini-black img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        .mini-more {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .more-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            font-size: 36px;
+            line-height: 140%;
+            color: #FFFFFF;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .plus-icon {
+            position: absolute;
+            width: 42px;
+            height: 42px;
+            right: 20px;
+            top: 20px;
+            color: #FFFFFF;
+            font-size: 42px;
+            font-weight: 300;
+            z-index: 2;
+        }
+
         .fade-out {
             animation: fadeOut 0.5s ease-out forwards;
         }
@@ -970,27 +1109,39 @@ body.nav-fixed {
         }
 
         @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-            }
+            from { opacity: 1; }
+            to { opacity: 0; }
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1400px) {
+            .our-work-section {
+                padding: 20px 0px;
             }
-            to {
-                opacity: 1;
+            
+            .work-row {
+                gap: 24px;
+                overflow-x: auto;
+                justify-content: flex-start;
+            }
+            
+            .card-aver,
+            .card-biggy,
+            .card-koor,
+            .card-social,
+            .card-column {
+                flex-shrink: 0;
             }
         }
 
-        /* Tablet Styles (768px - 1024px) */
         @media (max-width: 1024px) {
             .our-work-section {
-                padding: 30px 20px;
+                padding: 20px 0px;
                 gap: 30px;
             }
 
@@ -1000,14 +1151,28 @@ body.nav-fixed {
 
             .work-card {
                 padding: 32px;
-                min-width: 300px;
+            }
+
+            .card-aver,
+            .card-biggy,
+            .card-koor,
+            .card-social {
+                min-width: 320px;
+                width: auto;
+            }
+
+            .card-column {
+                min-width: 280px;
+            }
+
+            .work-row {
+                gap: 20px;
             }
         }
 
-        /* Mobile Styles (max-width: 767px) */
         @media (max-width: 767px) {
             .our-work-section {
-                padding: 20px 15px;
+                padding: 20px 0px;
                 gap: 20px;
             }
 
@@ -1017,45 +1182,43 @@ body.nav-fixed {
 
             .work-container {
                 gap: 16px;
-                padding: 0 15px;
             }
 
             .work-row {
                 gap: 16px;
-                justify-content: flex-start;
+                padding-bottom: 10px;
             }
 
             .work-card {
                 padding: 24px;
-                min-width: 280px;
+                min-width: 300px;
             }
 
-            .card-small,
-            .card-large,
-            .card-medium,
-            .card-medium-small {
-                flex: 0 0 280px;
+            .card-aver,
+            .card-biggy,
+            .card-koor,
+            .card-social {
+                min-width: 300px;
+                max-width: 320px;
             }
 
             .card-column {
-                flex: 0 0 280px;
-                min-width: 280px;
+                min-width: 300px;
+                max-width: 320px;
             }
 
-            .card-mini {
-                padding: 24px;
+            .brand-name {
+                font-size: 24px;
             }
 
-            .card-content {
-                font-size: 12px;
+            .brand-tagline {
+                font-size: 14px;
             }
         }
 
-        /* Small Mobile Styles (max-width: 480px) */
         @media (max-width: 480px) {
             .our-work-section {
-                padding: 20px 10px;
-                gap: 16px;
+                padding: 20px 0px;
             }
 
             .section-title {
@@ -1064,23 +1227,39 @@ body.nav-fixed {
 
             .work-card {
                 padding: 20px;
-                min-width: 240px;
+                min-width: 280px;
             }
 
-            .card-small,
-            .card-large,
-            .card-medium,
-            .card-medium-small {
-                flex: 0 0 240px;
+            .card-aver,
+            .card-biggy,
+            .card-koor,
+            .card-social {
+                min-width: 280px;
+                max-width: 300px;
             }
 
             .card-column {
-                flex: 0 0 240px;
-                min-width: 240px;
+                min-width: 280px;
+                max-width: 300px;
             }
 
-            .card-mini {
-                padding: 20px;
+            .brand-name {
+                font-size: 20px;
+            }
+
+            .brand-tagline {
+                font-size: 12px;
+            }
+
+            .play-button {
+                width: 80px;
+                height: 80px;
+            }
+
+            .play-button::before {
+                border-left: 18px solid white;
+                border-top: 12px solid transparent;
+                border-bottom: 12px solid transparent;
             }
         }
 /* Our Method Section */
