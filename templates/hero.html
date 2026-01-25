@@ -151,11 +151,6 @@
                     // Set flag to allow index.html to load, then navigate
                     sessionStorage.setItem('fromHero', 'true');
                     window.location.href = 'index.html';
-                    
-                    // After a delay, remove the flag so next time it redirects back to hero
-                    setTimeout(function() {
-                        sessionStorage.removeItem('fromHero');
-                    }, 100);
                 });
             });
         </script>
