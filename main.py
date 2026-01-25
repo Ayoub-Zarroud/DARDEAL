@@ -10,6 +10,10 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0  # Disable caching during developmen
 def index():
     return render_template('index.html')
 
+@app.route('/hero.html')
+def hero():
+    return render_template('hero.html')
+
 @app.route('/contact-us.html')
 def contact():
     return render_template('contact-us.html')
