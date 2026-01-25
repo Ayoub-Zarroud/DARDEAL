@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARDEAL - Audiovisual Production</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero{
+          width:100vw;
+          height:100vh;
+          margin: 0;
+          padding: 0;
+          background-image: url('images/Welcome home backgound.png');
+          background-size:cover;
+          background-position:center center;
+          background-repeat:no-repeat;
+          background-attachment: scroll;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .explore-btn {
+          position: absolute;
+          bottom: 200px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: transparent;
+          color: white;
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          padding: 16px 32px;
+          border-radius: 50px;
+          font-size: 16px;
+          font-family: 'Poppins', sans-serif;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          transition: all 0.3s ease;
+          backdrop-filter: blur(10px);
+          z-index: 100;
+        }
+
+        .explore-btn:hover {
+          background: rgba(255, 255, 255, 0.1);
+          border-color: rgba(255, 255, 255, 0.5);
+          transform: translateX(-50%) translateY(-5px);
+        }
+
+        .explore-btn svg {
+          animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+          0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+          }
+          40% {
+            transform: translateY(-10px);
+          }
+          60% {
+            transform: translateY(-5px);
+          }
+        }
+
+        /* Hero Section Responsive */
+        @media (max-width: 1440px) {
+          .hero {
+            background-size: cover;
+            background-position: center center;
+          }
+        }
+
+        @media (max-width: 1024px) {
+          .hero {
+            background-position: center center;
+            background-size: cover;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .hero {
+            height: 60vh;
+            background-position: center top;
+            background-size: cover;
+            min-height: 600px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero {
+            height: 60vh;
+            background-position: center center;
+            background-size: cover;
+            min-height: 500px;
+          }
+        }
+
+        @media (max-width: 375px) {
+          .hero {
+            height: 60vh;
+            background-position: 40% center;
+            background-size: cover;
+            min-height: 480px;
+          }
+        }
+
+        /* Landscape orientation for mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+          .hero {
+            height: 60vh;
+            min-height: 400px;
+            background-position: center center;
+            background-size: cover;
+          }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section with Background Image -->
+    <main class="hero">
+        <button class="explore-btn" id="exploreBtn">
+            Explore
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+
+        <script>
+            // Navigate to index.html on button click
+            document.addEventListener('DOMContentLoaded', function() {
+                const exploreBtn = document.getElementById('exploreBtn');
+                
+                exploreBtn.addEventListener('click', function() {
+                    // Set flag to allow index.html to load, then navigate
+                    sessionStorage.setItem('fromHero', 'true');
+                    window.location.href = 'index.html';
+                    
+                    // After a delay, remove the flag so next time it redirects back to hero
+                    setTimeout(function() {
+                        sessionStorage.removeItem('fromHero');
+                    }, 100);
+                });
+            });
+        </script>
+    </main>
+</body>
+</html>
