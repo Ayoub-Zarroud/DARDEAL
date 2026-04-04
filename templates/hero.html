@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARDEAL - Audiovisual Production</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+          width: 100vw;
+          height: 100vh;
+          margin: 0;
+          padding: 0;
+          background-image: url('images/Image.png');
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-attachment: scroll;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+        }
+
+        /* Hero Logo at Top */
+        .hero-logo {
+          position: absolute;
+          top: 5vh;
+          left: 50%;
+          transform: translateX(-50%);
+          width: min(200px, 25vw);
+          height: auto;
+          z-index: 100;
+          animation: fadeInDown 1s ease-in-out;
+        }
+
+        @keyframes fadeInDown {
+          from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+          }
+        }
+
+        /* Welcome SVG Styling */
+        .welcome-logo {
+          position: absolute;
+          width: min(1323px, 90vw);
+          height: auto;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -55%);
+          z-index: 50;
+          opacity: 1;
+          mix-blend-mode: difference;
+          filter: drop-shadow(0px 0px 8px rgba(255, 224, 50, 0.4));
+          animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translate(-50%, -55%) scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: translate(-50%, -55%) scale(1);
+          }
+        }
+        
+        .explore-btn {
+          position: absolute;
+          bottom: 22vh;
+          left: 50%;
+          transform: translateX(-50%);
+          background: transparent;
+          color: white;
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          padding: clamp(12px, 2vh, 16px) clamp(24px, 4vw, 32px);
+          border-radius: 50px;
+          font-size: clamp(14px, 2vw, 16px);
+          font-family: 'Poppins', sans-serif;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          transition: all 0.3s ease;
+          backdrop-filter: blur(10px);
+          z-index: 100;
+          white-space: nowrap;
+        }
+
+        .explore-btn:hover {
+          background: rgba(255, 255, 255, 0.1);
+          border-color: rgba(255, 255, 255, 0.5);
+          transform: translateX(-50%) translateY(-5px);
+        }
+
+        .explore-btn svg {
+          animation: bounce 2s infinite;
+          width: clamp(20px, 3vw, 24px);
+          height: clamp(20px, 3vw, 24px);
+        }
+
+        @keyframes bounce {
+          0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+          }
+          40% {
+            transform: translateY(-10px);
+          }
+          60% {
+            transform: translateY(-5px);
+          }
+        }
+
+        /* Meet Dardeal Text */
+        .tagline {
+          position: absolute;
+          width: min(495px, 90vw);
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: 12vh;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: clamp(16px, 3vw, 24px);
+          line-height: 1.4;
+          text-align: center;
+          color: #FFFFFF;
+          z-index: 100;
+          padding: 0 20px;
+        }
+
+        /* Desktop - Large Screens */
+        @media (min-width: 1920px) {
+          .hero-logo {
+            width: 220px;
+            top: 60px;
+          }
+          
+          .welcome-logo {
+            width: 1400px;
+          }
+          
+          .explore-btn {
+            bottom: 280px;
+          }
+          
+          .tagline {
+            bottom: 180px;
+            font-size: 26px;
+          }
+        }
+
+        /* Desktop - Standard */
+        @media (min-width: 1441px) and (max-width: 1919px) {
+          .hero-logo {
+            top: 50px;
+          }
+          
+          .explore-btn {
+            bottom: 250px;
+          }
+          
+          .tagline {
+            bottom: 150px;
+          }
+        }
+
+        /* Laptop - Medium */
+        @media (min-width: 1025px) and (max-width: 1440px) {
+          .welcome-logo {
+            width: 1100px;
+          }
+          
+          .hero-logo {
+            width: 180px;
+            top: 100px;
+          }
+          
+          .explore-btn {
+            bottom: 200px;
+          }
+          
+          .tagline {
+            bottom: 100px;
+            font-size: 22px;
+          }
+        }
+
+        /* Tablet - Landscape */
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .welcome-logo {
+            width: 800px;
+          }
+          
+          .hero-logo {
+            width: 160px;
+            top: 110px;
+          }
+          
+          .explore-btn {
+            bottom: 200px;
+          }
+          
+          .tagline {
+            bottom: 110px;
+            font-size: 20px;
+          }
+        }
+
+        /* Tablet - Portrait */
+        @media (min-width: 481px) and (max-width: 768px) {
+          .hero {
+            min-height: 100vh;
+          }
+          
+          .welcome-logo {
+            width: 85vw;
+          }
+          
+          .hero-logo {
+            width: 140px;
+            top: 10vh;
+          }
+          
+          .explore-btn {
+            bottom: 18vh;
+            padding: 14px 28px;
+          }
+          
+          .tagline {
+            bottom: 10vh;
+            font-size: 18px;
+            line-height: 1.5;
+          }
+        }
+
+        /* Mobile - Large */
+        @media (max-width: 480px) {
+          .hero {
+            min-height: 100vh;
+          }
+          
+          .welcome-logo {
+            width: 90vw;
+            max-width: 400px;
+          }
+          
+          .hero-logo {
+            width: 110px;
+            top: 8vh;
+          }
+          
+          .explore-btn {
+            bottom: 26vh;
+            padding: 12px 24px;
+            font-size: 14px;
+          }
+          
+          .explore-btn svg {
+            width: 20px;
+            height: 20px;
+          }
+          
+          .tagline {
+            bottom: 8vh;
+            font-size: 16px;
+            line-height: 1.6;
+          }
+        }
+
+        /* Mobile - Small */
+        @media (max-width: 375px) {
+          .welcome-logo {
+            width: 92vw;
+            max-width: 340px;
+          }
+          
+          .hero-logo {
+            width: 90px;
+            top: 20px;
+          }
+          
+          .explore-btn {
+            bottom: 15vh;
+            padding: 10px 20px;
+            gap: 8px;
+          }
+          
+          .tagline {
+            bottom: 7vh;
+            font-size: 15px;
+          }
+        }
+
+        /* Landscape orientation for mobile/tablet */
+        @media (max-height: 600px) and (orientation: landscape) {
+          .hero {
+            min-height: 100vh;
+          }
+          
+          .welcome-logo {
+            width: 60vw;
+            transform: translate(-50%, -50%);
+          }
+          
+          .hero-logo {
+            width: 100px;
+            top: 20px;
+          }
+          
+          .explore-btn {
+            bottom: 15vh;
+            padding: 10px 24px;
+            font-size: 14px;
+          }
+          
+          .tagline {
+            bottom: 5vh;
+            font-size: 14px;
+            line-height: 1.4;
+          }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 320px) {
+          .welcome-logo {
+            width: 95vw;
+          }
+          
+          .hero-logo {
+            width: 80px;
+            top: 15px;
+          }
+          
+          .explore-btn {
+            padding: 8px 16px;
+            font-size: 13px;
+          }
+          
+          .tagline {
+            font-size: 14px;
+          }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section with Background Image -->
+    <main class="hero">
+        <!-- Hero Logo at Top -->
+        <img src="images/herologo.svg" alt="Dardeal" class="hero-logo">
+
+        <!-- Welcome SVG Logo -->
+        <img src="images/Welcome.svg" alt="Welcome" class="welcome-logo">
+
+        <button class="explore-btn" id="exploreBtn">
+            Explore
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+
+        <!-- Tagline -->
+        <p class="tagline">Meet Dardeal,<br>Where Creativity Feels Like Home.</p>
+
+        <script>
+            // Navigate to index.html on button click
+            document.addEventListener('DOMContentLoaded', function() {
+                const exploreBtn = document.getElementById('exploreBtn');
+                
+                exploreBtn.addEventListener('click', function() {
+                    // Set flag to allow index.html to load, then navigate
+                    sessionStorage.setItem('fromHero', 'true');
+                    window.location.href = '/Home';
+                });
+            });
+        </script>
+    </main>
+</body>
+</html>
